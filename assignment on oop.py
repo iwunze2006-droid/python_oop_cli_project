@@ -39,7 +39,7 @@ print(check_course_fee(0))
 
 
 #task 4
-class student:
+class Student:
     school_name = "Smart Coder Academy"
     def __init__(self, name, email, course, course_fee):
        self.name = name
@@ -77,22 +77,22 @@ class student:
 
 
     # task 5
-student_01 = student("ezekiel","ezekiel@gmail.com","devops",30000.50)
-student_02 = student("emma","emma@gmail.com","cyber security",45000.50)
-student_03 = student("aisha","aisha@gmail.com","web development",65000.50)    
-print(student_01.name, student_01.email,student_01.course,student_03.school_name)
-print(student_01.name, student_01.email,student_01.course,student_03.school_name)
-print(student_03.name, student_01.email,student_01.course,student_03.school_name)
+student_01 = Student("ezekiel","ezekiel@gmail.com","devops",30000.50)
+student_02 = Student("emma","emma@gmail.com","cyber security",45000.50)
+student_03 = Student("aisha","aisha@gmail.com","web development",65000.50)    
+print(student_01.name, student_01.email,student_01.course,student_01.school_name)
+print(student_02.name, student_02.email,student_02.course,student_02.school_name)
+print(student_03.name, student_03.email,student_03.course,student_03.school_name)
 
 
 #task 6
-print(student.school_name)
+print(Student.school_name)
 print(student_01.school_name)
 
 student_01.school_name = "another academy"
 print(student_01.school_name)
 print(student_02.school_name)
-print(student.school_name)
+print(Student.school_name)
 
 
 #task 7
@@ -111,7 +111,22 @@ student_02.add_student(student_list)
 student_03.add_student(student_list)
 
 # task 9
-
+def get_all_students(student_list):
+    if len (student_list)==0:
+        print("no student registerd yet")
+    else:
+        count = 0
+        for i in student_list:
+            print("==========================")
+            print("name:",i ["name"])
+            print("email:",i ["email"])
+            print("course:",i ["course"])
+            print(f"fee: {i["course_fee"]}")
+            print("school:",i ["school"])
+            count = count +1
+            print("==========================")
+            print("total student:",count)
+#  OR            
 
 
 #Task 11
@@ -158,12 +173,12 @@ while True:
         if fee < 0:
             print("Fee cannot be negative.")
         else:
-            new_student = student(name, email, course, fee)
+            new_student = Student(name, email, course, fee)
             student_objects.append(new_student)
             new_student.add_student(students_list)
 
     elif choice == "2":
-        get_all_students(students_list)
+        Student.get_student_data(students_list)
 
     elif choice == "3":
         search_email = input("Enter email to search: ")
